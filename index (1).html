@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>东莞市显博电热电器有限公司 — 高端电热管专业制造商</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #0d1b2a;
+    --steel:  #1b3050;
+    --gold:   #c9a84c;
+    --gold-lt:#e8c87a;
+    --smoke:  #e8e4dc;
+    --white:  #f5f3ef;
+    --muted:  #8a9ab0;
+    --accent: #2e7bbd;
+    --border: rgba(201,168,76,.25);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ─── 插入图片统一适配规则 ─────────────── */
+  .ph-img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'Noto Sans SC', sans-serif;
+    background: var(--white);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+    background: rgba(13,27,42,.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 60px; height: 68px;
+  }
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.15rem; font-weight: 700; letter-spacing: .12em;
+    color: var(--gold); text-transform: uppercase;
+  }
+  .nav-logo span { color: var(--white); font-weight: 400; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: .82rem; font-weight: 400; letter-spacing: .08em;
+    color: rgba(245,243,239,.7); text-decoration: none;
+    transition: color .25s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ─── 汉堡菜单按钮（默认隐藏，移动端显示） ─── */
+  .nav-burger {
+    display: none;
+    flex-direction: column; justify-content: center; gap: 5px;
+    width: 30px; height: 30px; background: none; border: none;
+    cursor: pointer; z-index: 110; padding: 0; flex-shrink: 0;
+  }
+  .nav-burger span {
+    display: block; width: 100%; height: 2px; background: var(--gold);
+    transition: transform .25s, opacity .25s;
+  }
+  .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-burger.open span:nth-child(2) { opacity: 0; }
+  .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ─── HERO ─────────────────────────────── */
+  .hero {
+    height: 100vh; min-height: 680px;
+    background: var(--navy);
+    display: grid; grid-template-columns: 1fr 1fr;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg-lines {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(201,168,76,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 60px 80px;
+    position: relative; z-index: 2;
+  }
+  .hero-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .78rem; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: ''; width: 32px; height: 1px; background: var(--gold);
+  }
+  .hero-h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.6rem, 4.5vw, 4rem);
+    font-weight: 700; line-height: 1.15;
+    color: var(--white); margin-bottom: 16px;
+  }
+  .hero-h1 em { color: var(--gold); font-style: normal; }
+  .hero-sub {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 1rem; font-weight: 300; line-height: 1.8;
+    color: var(--muted); max-width: 440px; margin-bottom: 48px;
+  }
+  .hero-cta-row { display: flex; gap: 16px; align-items: center; }
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: .85rem; font-weight: 700; letter-spacing: .06em;
+    padding: 14px 34px; border: none; cursor: pointer;
+    text-decoration: none; display: inline-block;
+    transition: background .25s, transform .2s;
+  }
+  .btn-primary:hover { background: var(--gold-lt); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent; color: var(--muted);
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: .85rem; font-weight: 400; letter-spacing: .06em;
+    padding: 13px 30px; border: 1px solid rgba(138,154,176,.4);
+    cursor: pointer; text-decoration: none; display: inline-block;
+    transition: border-color .25s, color .25s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-stats {
+    display: flex; gap: 40px; margin-top: 56px;
+    padding-top: 40px; border-top: 1px solid rgba(255,255,255,.08);
+  }
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 700; color: var(--gold); line-height: 1;
+  }
+  .hero-stat-label { font-size: .75rem; color: var(--muted); margin-top: 6px; letter-spacing: .04em; }
+
+  .hero-right {
+    position: relative; z-index: 2;
+    display: flex; align-items: center; justify-content: center;
+    padding: 80px 60px 80px 20px;
+  }
+  /* ── Hero image placeholder ── */
+  .hero-img-wrap {
+    width: 100%; max-width: 500px; aspect-ratio: 4/3;
+    position: relative;
+  }
+  .hero-img-placeholder {
+    width: 100%; height: 100%;
+    background: var(--steel);
+    border: 1px solid var(--border);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 12px;
+  }
+  .hero-img-placeholder .ph-icon {
+    width: 56px; height: 56px; opacity: .35;
+  }
+  .hero-img-placeholder p {
+    font-size: .78rem; color: var(--muted); text-align: center; line-height: 1.6;
+  }
+  .hero-img-badge {
+    position: absolute; bottom: -20px; right: -20px;
+    background: var(--gold); color: var(--navy);
+    padding: 18px 22px; font-family: 'Barlow Condensed', sans-serif;
+    font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 700;
+    line-height: 1.5;
+  }
+
+  /* ─── SECTION HELPERS ─────────────────── */
+  section { padding: 100px 60px; }
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: .72rem; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::before { content:''; width:24px; height:1px; background:var(--gold); }
+  .section-h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 2.9rem); font-weight: 700;
+    color: var(--navy); line-height: 1.2; margin-bottom: 20px;
+  }
+  .section-h2.light { color: var(--white); }
+  .section-lead {
+    font-size: .95rem; font-weight: 300; color: #4a5d74;
+    line-height: 1.9; max-width: 640px;
+  }
+  .section-lead.light { color: var(--muted); }
+  .divider { width: 48px; height: 2px; background: var(--gold); margin: 24px 0; }
+
+  /* ─── ABOUT ────────────────────────────── */
+  .about { background: var(--white); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center; margin-top: 64px;
+  }
+  .about-img-stack { position: relative; }
+  .about-img-main {
+    width: 100%; aspect-ratio: 3/2;
+    background: #d4d0c8;
+    border: 1px solid rgba(0,0,0,.08);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 10px;
+  }
+  .about-img-secondary {
+    position: absolute; bottom: -30px; right: -30px;
+    width: 55%; aspect-ratio: 4/3;
+    background: var(--steel);
+    border: 3px solid var(--white);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 8px;
+  }
+  .about-img-secondary p { color: var(--muted); font-size: .72rem; text-align: center; }
+  .ph-label { font-size: .72rem; color: #a0a0a0; text-align: center; line-height: 1.6; }
+  .ph-icon-sm { width: 36px; height: 36px; opacity: .3; }
+  .about-features { display: flex; flex-direction: column; gap: 28px; margin-top: 36px; }
+  .about-feature {
+    display: flex; gap: 18px; align-items: flex-start;
+    padding-bottom: 28px; border-bottom: 1px solid rgba(0,0,0,.07);
+  }
+  .about-feature:last-child { border-bottom: none; }
+  .feature-icon-wrap {
+    flex-shrink: 0; width: 44px; height: 44px;
+    background: rgba(201,168,76,.1); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .feature-icon-wrap svg { width: 20px; height: 20px; color: var(--gold); }
+  .feature-title { font-size: .9rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .feature-desc { font-size: .83rem; color: #5c6b7a; line-height: 1.75; font-weight: 300; }
+
+  /* ─── PRODUCTS ─────────────────────────── */
+  .products { background: #f0ede7; }
+  .products-intro { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; flex-wrap: wrap; gap: 24px; }
+  .products-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .product-card {
+    background: var(--white); position: relative;
+    overflow: hidden; cursor: pointer;
+    transition: transform .3s;
+  }
+  .product-card:hover { transform: translateY(-4px); z-index: 2; }
+  .product-card:hover .product-overlay { opacity: 1; }
+  .product-img {
+    width: 100%; aspect-ratio: 4/3;
+    background: #c8c4bc;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 8px;
+    position: relative;
+  }
+  .product-img-label { font-size: .7rem; color: #888; text-align: center; line-height: 1.5; }
+  .product-body { padding: 24px 24px 28px; }
+  .product-tag {
+    display: inline-block; font-family: 'Barlow Condensed', sans-serif;
+    font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--gold); border: 1px solid var(--border);
+    padding: 3px 10px; margin-bottom: 10px;
+  }
+  .product-name { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .product-desc { font-size: .8rem; color: #6a7a8a; line-height: 1.75; font-weight: 300; }
+  .product-overlay {
+    position: absolute; inset: 0; background: rgba(13,27,42,.88);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity .3s;
+  }
+  .product-overlay span {
+    color: var(--gold); font-family: 'Barlow Condensed', sans-serif;
+    font-size: .8rem; letter-spacing: .2em; text-transform: uppercase;
+    border: 1px solid var(--gold); padding: 10px 22px;
+  }
+
+  /* ─── CERTIFICATIONS ───────────────────── */
+  .certs { background: var(--navy); }
+  .certs-grid {
+    display: flex; flex-wrap: wrap; gap: 16px;
+    margin-top: 48px;
+  }
+  .cert-badge {
+    background: rgba(255,255,255,.04); border: 1px solid var(--border);
+    padding: 20px 32px; text-align: center;
+    transition: background .25s, border-color .25s;
+    min-width: 130px;
+  }
+  .cert-badge:hover { background: rgba(201,168,76,.08); border-color: rgba(201,168,76,.5); }
+  .cert-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.2rem; font-weight: 700; letter-spacing: .06em;
+    color: var(--gold); line-height: 1;
+  }
+  .cert-desc { font-size: .72rem; color: var(--muted); margin-top: 6px; letter-spacing: .02em; }
+  .certs-note {
+    margin-top: 40px; padding: 24px 28px;
+    background: rgba(255,255,255,.03); border-left: 2px solid var(--gold);
+    font-size: .85rem; color: var(--muted); line-height: 1.8;
+  }
+  .certs-note strong { color: var(--smoke); font-weight: 500; }
+
+  /* ─── APPLICATIONS ─────────────────────── */
+  .applications { background: var(--white); }
+  .app-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 24px; margin-top: 56px;
+  }
+  .app-card {
+    border: 1px solid rgba(0,0,0,.08);
+    padding: 0 0 24px; overflow: hidden;
+    transition: border-color .25s, box-shadow .25s;
+  }
+  .app-card:hover { border-color: var(--gold); box-shadow: 0 8px 32px rgba(201,168,76,.08); }
+  .app-img {
+    width: 100%; aspect-ratio: 1;
+    background: #ddd9d1;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 8px;
+    margin-bottom: 18px;
+  }
+  .app-img p { font-size: .68rem; color: #999; text-align: center; }
+  .app-name { font-size: .88rem; font-weight: 700; color: var(--navy); padding: 0 18px; margin-bottom: 6px; }
+  .app-detail { font-size: .77rem; color: #6a7a8a; padding: 0 18px; line-height: 1.65; font-weight: 300; }
+
+  /* ─── CLIENTS ──────────────────────────── */
+  .clients { background: #f0ede7; padding: 80px 60px; }
+  .clients-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+  .clients-text { max-width: 380px; }
+  .clients-logos {
+    display: flex; flex-wrap: wrap; gap: 12px; max-width: 600px;
+  }
+  .client-chip {
+    background: var(--white); border: 1px solid rgba(0,0,0,.1);
+    padding: 9px 18px; font-size: .8rem; color: #4a5d74; font-weight: 400;
+    letter-spacing: .02em;
+    transition: border-color .2s, color .2s;
+  }
+  .client-chip:hover { border-color: var(--gold); color: var(--navy); }
+
+  /* ─── FACTORY ──────────────────────────── */
+  .factory { background: var(--steel); padding: 100px 60px; }
+  .factory-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 60px;
+  }
+  .factory-img-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .factory-img {
+    aspect-ratio: 4/3; background: rgba(255,255,255,.06);
+    border: 1px solid var(--border);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 8px;
+  }
+  .factory-img.tall { grid-column: span 2; aspect-ratio: 16/7; }
+  .factory-img p { font-size: .68rem; color: var(--muted); text-align: center; }
+  .factory-kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 32px; }
+  .kpi {
+    background: rgba(255,255,255,.04); border: 1px solid var(--border);
+    padding: 28px 24px;
+  }
+  .kpi-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem; font-weight: 700; color: var(--gold); line-height: 1;
+  }
+  .kpi-unit { font-size: .8rem; color: var(--gold); }
+  .kpi-label { font-size: .78rem; color: var(--muted); margin-top: 8px; line-height: 1.5; }
+
+  /* ─── CONTACT ──────────────────────────── */
+  .contact { background: var(--navy); }
+  .contact-grid {
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px;
+    margin-top: 60px; align-items: start;
+  }
+  .contact-info-block { display: flex; flex-direction: column; gap: 32px; }
+  .contact-item { display: flex; gap: 20px; align-items: flex-start; }
+  .contact-icon {
+    flex-shrink: 0; width: 42px; height: 42px;
+    background: rgba(201,168,76,.1); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .contact-icon svg { width: 18px; height: 18px; color: var(--gold); }
+  .contact-label { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .contact-value { font-size: .92rem; color: var(--smoke); line-height: 1.7; font-weight: 300; }
+  .contact-value strong { color: var(--white); font-weight: 500; }
+
+  .contact-map-placeholder {
+    width: 100%; aspect-ratio: 4/3;
+    background: rgba(255,255,255,.04); border: 1px solid var(--border);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 12px;
+  }
+  .contact-map-placeholder p { font-size: .78rem; color: var(--muted); text-align: center; line-height: 1.6; }
+
+  /* ─── FOOTER ────────────────────────────── */
+  footer {
+    background: #080f17; border-top: 1px solid rgba(255,255,255,.07);
+    padding: 36px 60px; display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 16px;
+  }
+  footer p { font-size: .78rem; color: rgba(138,154,176,.6); }
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem; font-weight: 700; letter-spacing: .14em;
+    color: rgba(201,168,76,.6); text-transform: uppercase;
+  }
+
+  /* ─── ANIMATIONS ────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow { animation: fadeUp .7s ease both; animation-delay: .1s; }
+  .hero-h1      { animation: fadeUp .7s ease both; animation-delay: .25s; }
+  .hero-sub     { animation: fadeUp .7s ease both; animation-delay: .4s; }
+  .hero-cta-row { animation: fadeUp .7s ease both; animation-delay: .55s; }
+  .hero-stats   { animation: fadeUp .7s ease both; animation-delay: .7s; }
+  .hero-right   { animation: fadeUp .9s ease both; animation-delay: .5s; }
+
+  /* ─── RESPONSIVE ─────────────────────────── */
+  @media (max-width: 1024px) {
+    nav { padding: 0 30px; }
+    section { padding: 72px 30px; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 120px 30px 80px; }
+    .about-grid, .factory-grid, .contact-grid { grid-template-columns: 1fr; }
+    .about-img-secondary { display: none; }
+    .products-grid { grid-template-columns: 1fr 1fr; }
+    .app-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .products-grid, .app-grid { grid-template-columns: 1fr; }
+    .hero-stats { flex-wrap: wrap; gap: 24px; }
+    footer { flex-direction: column; text-align: center; }
+    .clients-inner { flex-direction: column; }
+  }
+
+  /* ─── 导航栏移动端适配 ─────────────────── */
+  @media (max-width: 860px) {
+    nav { padding: 0 20px; height: 60px; }
+    .nav-logo { font-size: .92rem; letter-spacing: .08em; }
+    .nav-burger { display: flex; }
+    .nav-links {
+      position: fixed; top: 60px; left: 0; width: 100%;
+      flex-direction: column; gap: 0;
+      background: rgba(13,27,42,.97); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      max-height: 0; overflow: hidden;
+      transition: max-height .3s ease;
+    }
+    .nav-links.open { max-height: 400px; }
+    .nav-links li { width: 100%; }
+    .nav-links a {
+      display: block; width: 100%; padding: 16px 24px;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      font-size: .88rem;
+    }
+    .hero-left { padding-top: 100px; }
+  }
+  @media (max-width: 380px) {
+    .nav-logo { font-size: .8rem; letter-spacing: .04em; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ NAV ═══════════════════ -->
+<nav>
+  <div class="nav-logo">XIANBO <span>显博电热</span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">关于我们</a></li>
+    <li><a href="#products">产品系列</a></li>
+    <li><a href="#certs">资质认证</a></li>
+    <li><a href="#applications">应用领域</a></li>
+    <li><a href="#factory">工厂实力</a></li>
+    <li><a href="#contact">联系我们</a></li>
+  </ul>
+  <button class="nav-burger" id="navBurger" aria-label="打开菜单" aria-expanded="false" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg-lines"></div>
+  <div class="hero-left">
+    <div class="hero-eyebrow">专业电热元件制造商 · 成立于2007年</div>
+    <h1 class="hero-h1">
+      廿年专业<br>
+      <em>专注高端</em><br>
+      拒绝平庸
+    </h1>
+    <p class="hero-sub">
+      高品质工业及民用电热管的研发、制造与销售。
+      严格遵循国家与国际行业标准，服务全球客户。
+    </p>
+    <div class="hero-cta-row">
+      <a href="#contact" class="btn-primary">立即咨询</a>
+      <a href="#products" class="btn-outline">浏览产品</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">20<sup style="font-size:1rem">+</sup></div>
+        <div class="hero-stat-label">年行业深耕</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">20<span style="font-size:1.1rem">万</span></div>
+        <div class="hero-stat-label">日均出货量（支）</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">6</div>
+        <div class="hero-stat-label">项国际权威认证</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <div class="hero-img-placeholder">
+        <img class="ph-img" src="images/1.jpg" alt="工厂/产品实拍图">
+      </div>
+      <div class="hero-img-badge">
+        东莞 · 福建<br>自有工厂<br>10万㎡
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ABOUT ══════════════════ -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-img-stack">
+      <div class="about-img-main">
+        <img class="ph-img" src="images/2.jpg" alt="公司/工厂外景图">
+      </div>
+      <div class="about-img-secondary">
+        <img class="ph-img" src="images/3.jpg" alt="车间生产图">
+      </div>
+    </div>
+    <div>
+      <div class="section-label">关于显博</div>
+      <h2 class="section-h2">整合优质资源<br>打造卓越电热元件</h2>
+      <div class="divider"></div>
+      <p class="section-lead" style="margin-bottom: 40px;">
+        东莞市显博电热电器有限公司成立于2007年，深耕电热管行业逾二十年，整合国内外优质电热元器件资源，凭借自有大型工厂优势，为客户提供性价比最高的电热解决方案。
+      </p>
+      <div class="about-features">
+        <div class="about-feature">
+          <div class="feature-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <div class="feature-title">严格执行行业标准</div>
+            <div class="feature-desc">严格按 JB/T2379-2016（工业用）与 JB/T4088.1-2022（民用）标准验收出货，品质可追溯。</div>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="feature-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+          </div>
+          <div>
+            <div class="feature-title">精准定制，灵活应需</div>
+            <div class="feature-desc">根据客户需求进行非标定制，支持小批量试样，图纸来稿即可报价，全球可发货。</div>
+          </div>
+        </div>
+        <div class="about-feature">
+          <div class="feature-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>
+          </div>
+          <div>
+            <div class="feature-title">产品远销国内外</div>
+            <div class="feature-desc">广泛服务家电、工业机械、食品医疗等行业，优质客户覆盖全国及海外市场。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PRODUCTS ═══════════════ -->
+<section class="products" id="products">
+  <div class="products-intro">
+    <div>
+      <div class="section-label">产品系列</div>
+      <h2 class="section-h2">多材质·多规格<br>满足各类工况需求</h2>
+    </div>
+    <p style="font-size:.85rem; color:#5c6b7a; max-width:360px; line-height:1.8;">
+      可使用不锈钢SUS201/304/321/316、INCOLOY840/800等多种材质定制生产。
+    </p>
+  </div>
+  <div class="products-grid">
+
+    <div class="product-card">
+      <div class="product-img">
+        <img class="ph-img" src="images/4.jpg" alt="干烧高温管产品图">
+        <div class="product-overlay"><span>查看详情</span></div>
+      </div>
+      <div class="product-body">
+        <div class="product-tag">工业用</div>
+        <div class="product-name">干烧高温管</div>
+        <div class="product-desc">适用于模具加热、工业烘干等高温工况，耐热性能卓越，寿命持久。</div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <img class="ph-img" src="images/5.jpg" alt="水烧管产品图">
+        <div class="product-overlay"><span>查看详情</span></div>
+      </div>
+      <div class="product-body">
+        <div class="product-tag">工业 / 民用</div>
+        <div class="product-name">水烧管 / 翅片散热管</div>
+        <div class="product-desc">广泛应用于热水设备、精酿啤酒机械、蒸汽发生器等液体加热场合。</div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <img class="ph-img" src="images/6.jpg" alt="单头管产品图">
+        <div class="product-overlay"><span>查看详情</span></div>
+      </div>
+      <div class="product-body">
+        <div class="product-tag">精密定制</div>
+        <div class="product-name">高功率精密单头管</div>
+        <div class="product-desc">结构紧凑，功率密度高，适用于模温机、注塑设备、3D打印等精密设备。</div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <img class="ph-img" src="images/7.jpg" alt="卤素管/碳素管产品图">
+        <div class="product-overlay"><span>查看详情</span></div>
+      </div>
+      <div class="product-body">
+        <div class="product-tag">辐射加热</div>
+        <div class="product-name">卤素管 / 碳素管</div>
+        <div class="product-desc">即热响应快，辐射加热均匀，广泛用于烤箱、暖风机等家电产品。</div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <img class="ph-img" src="images/8.jpg" alt="石英玻璃管/陶瓷管产品图">
+        <div class="product-overlay"><span>查看详情</span></div>
+      </div>
+      <div class="product-body">
+        <div class="product-tag">特种材质</div>
+        <div class="product-name">石英玻璃管 / 进口陶瓷管</div>
+        <div class="product-desc">耐高温、耐腐蚀，适用于半导体、医疗设备、钢化炉等特殊高端应用。</div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <img class="ph-img" src="images/9.jpg" alt="钛管产品图">
+        <div class="product-overlay"><span>查看详情</span></div>
+      </div>
+      <div class="product-body">
+        <div class="product-tag">耐腐蚀</div>
+        <div class="product-name">钛管加热器</div>
+        <div class="product-desc">优异的耐酸碱腐蚀性，专为电镀、化工、食品清洗等强腐蚀介质环境设计。</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ CERTIFICATIONS ════════ -->
+<section class="certs" id="certs">
+  <div class="section-label" style="color:var(--gold)">资质认证</div>
+  <h2 class="section-h2 light">国际标准认证<br>品质实力的硬凭证</h2>
+  <div class="divider"></div>
+  <div class="certs-grid">
+    <div class="cert-badge">
+      <div class="cert-name">CQC</div>
+      <div class="cert-desc">中国国家产品安全认证</div>
+    </div>
+    <div class="cert-badge">
+      <div class="cert-name">UL</div>
+      <div class="cert-desc">美国安全认证</div>
+    </div>
+    <div class="cert-badge">
+      <div class="cert-name">CUL / CSA</div>
+      <div class="cert-desc">加拿大标准认证</div>
+    </div>
+    <div class="cert-badge">
+      <div class="cert-name">CE</div>
+      <div class="cert-desc">欧盟市场准入认证</div>
+    </div>
+    <div class="cert-badge">
+      <div class="cert-name">VDE</div>
+      <div class="cert-desc">德国电气品质认证</div>
+    </div>
+    <div class="cert-badge">
+      <div class="cert-name">ISO 9001</div>
+      <div class="cert-desc">2015版质量管理体系认证</div>
+    </div>
+  </div>
+  <div class="certs-note">
+    <strong>标准执行：</strong>工业用产品严格按 <strong>JB/T2379-2016</strong> 金属管状电热元件标准验收；民用产品按 <strong>JB/T4088.1-2022</strong> 日用管状电热元件标准验收。每批次出货均有质检记录可追溯。
+  </div>
+</section>
+
+<!-- ═══════════════ APPLICATIONS ══════════ -->
+<section class="applications" id="applications">
+  <div class="section-label">应用领域</div>
+  <h2 class="section-h2">广泛应用<br>覆盖多个核心行业</h2>
+  <div class="divider"></div>
+  <div class="app-grid">
+
+    <div class="app-card">
+      <div class="app-img">
+        <img class="ph-img" src="images/10.jpg" alt="精酿/啤酒设备应用场景图">
+      </div>
+      <div class="app-name">精酿 / 啤酒设备</div>
+      <div class="app-detail">精酿啤酒机械、蒸汽发生器、清洗烘干设备专用电热管。</div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-img">
+        <img class="ph-img" src="images/11.jpg" alt="家电/厨具应用场景图">
+      </div>
+      <div class="app-name">家电 / 厨具</div>
+      <div class="app-detail">烤箱、暖风机、热水器、电热锅等家用电器核心加热元件。</div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-img">
+        <img class="ph-img" src="images/12.jpg" alt="模具/3D打印应用场景图">
+      </div>
+      <div class="app-name">模具 / 3D打印</div>
+      <div class="app-detail">模温机、注塑模具、3D打印设备用精密单头管与加热棒。</div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-img">
+        <img class="ph-img" src="images/13.jpg" alt="半导体/钢化炉应用场景图">
+      </div>
+      <div class="app-name">半导体 / 钢化炉</div>
+      <div class="app-detail">半导体生产设备、钢化玻璃炉、负载箱等高端工业场合。</div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-img">
+        <img class="ph-img" src="images/14.jpg" alt="食品/医疗应用场景图">
+      </div>
+      <div class="app-name">食品 / 医疗</div>
+      <div class="app-detail">食品加工、医疗灭菌设备用耐腐蚀型电热管，符合卫生级要求。</div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-img">
+        <img class="ph-img" src="images/15.jpg" alt="电镀/化工应用场景图">
+      </div>
+      <div class="app-name">电镀 / 化工</div>
+      <div class="app-detail">钛管、INCOLOY高合金管，耐强酸碱，专为电镀槽、化工设备打造。</div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-img">
+        <img class="ph-img" src="images/16.jpg" alt="橡塑/包装应用场景图">
+      </div>
+      <div class="app-name">橡塑 / 包装</div>
+      <div class="app-detail">橡塑硫化设备、热封包装机、吹膜机等加热系统配套电热管。</div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-img">
+        <img class="ph-img" src="images/17.jpg" alt="线缆/漆包机应用场景图">
+      </div>
+      <div class="app-name">线缆 / 漆包机</div>
+      <div class="app-detail">漆包机、线缆烘干炉等连续生产设备用高稳定性工业电热管。</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ CLIENTS ════════════════ -->
+<section class="clients" id="clients">
+  <div class="clients-inner">
+    <div class="clients-text">
+      <div class="section-label">优质客户</div>
+      <h2 class="section-h2" style="font-size:2rem;">众多知名企业<br>长期信赖之选</h2>
+      <div class="divider"></div>
+      <p class="section-lead" style="font-size:.85rem;">我们长期服务于国内外知名设备企业，凭借稳定品质与专业服务赢得广泛认可。</p>
+    </div>
+    <div class="clients-logos">
+      <div class="client-chip">山东中德</div>
+      <div class="client-chip">泽禹设备</div>
+      <div class="client-chip">申东机械</div>
+      <div class="client-chip">沐阳科技</div>
+      <div class="client-chip">宁波纵环</div>
+      <div class="client-chip">通大机械</div>
+      <div class="client-chip">象港设备</div>
+      <div class="client-chip">乐惠国际</div>
+      <div class="client-chip">捷思杰</div>
+      <div class="client-chip">及更多合作伙伴...</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FACTORY ════════════════ -->
+<section class="factory" id="factory">
+  <div class="section-label" style="color:var(--gold)">工厂实力</div>
+  <h2 class="section-h2 light">东莞 · 福建双基地<br>规模化保障交付能力</h2>
+  <div class="divider"></div>
+  <div class="factory-grid">
+    <div>
+      <div class="factory-img-row">
+        <div class="factory-img tall">
+          <img class="ph-img" src="images/18.jpg" alt="工厂全景/航拍图">
+        </div>
+        <div class="factory-img">
+          <img class="ph-img" src="images/19.jpg" alt="生产线图">
+        </div>
+        <div class="factory-img">
+          <img class="ph-img" src="images/20.jpg" alt="质检设备图">
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="section-lead light" style="margin-bottom:32px;">
+        自有东莞与福建两大生产基地，总厂房面积逾10万平方米，配备先进生产设备与严格质量管控体系，确保每批产品精准交付。
+      </p>
+      <div class="factory-kpis">
+        <div class="kpi">
+          <div class="kpi-num">10<span class="kpi-unit">万㎡</span></div>
+          <div class="kpi-label">东莞 · 福建双基地<br>总厂房面积</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-num">20<span class="kpi-unit">万支</span></div>
+          <div class="kpi-label">日均稳定出货量</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-num">20<span class="kpi-unit">年+</span></div>
+          <div class="kpi-label">行业深耕<br>工艺持续精进</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-num">6<span class="kpi-unit">项</span></div>
+          <div class="kpi-label">国际权威认证<br>全球通行</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CONTACT ════════════════ -->
+<section class="contact" id="contact">
+  <div class="section-label" style="color:var(--gold)">联系我们</div>
+  <h2 class="section-h2 light">欢迎咨询<br>一起探讨合作</h2>
+  <div class="divider"></div>
+  <div class="contact-grid">
+    <div class="contact-info-block">
+
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">联系电话 / 微信</div>
+          <div class="contact-value">
+            <strong>周燕</strong> — 13725826368（微信同号）<br>
+            <strong>王俊勇</strong> — 13038820498
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">公司地址</div>
+          <div class="contact-value">广东省东莞市塘厦镇莲湖新村翠莲阁19号</div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">阿里巴巴 1688 店铺</div>
+          <div class="contact-value">
+            <a href="https://dgxianbo.1688.com" target="_blank" style="color:var(--gold); text-decoration:none;">dgxianbo.1688.com</a><br>
+            <span style="font-size:.8rem;">欢迎搜索「显博电热」在线咨询</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">公司全称</div>
+          <div class="contact-value">东莞市显博电热电器有限公司</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <div class="contact-map-placeholder">
+        <img class="ph-img" src="images/21.jpg" alt="公司实景导航图">
+      </div>
+      <div style="margin-top: 20px; padding: 20px 24px; background: rgba(201,168,76,.07); border: 1px solid var(--border);">
+        <div style="font-size:.78rem; color:var(--muted); margin-bottom:10px; letter-spacing:.06em; text-transform:uppercase;">快速咨询</div>
+        <p style="font-size:.85rem; color:var(--smoke); line-height:1.8; font-weight:300;">
+          支持来图来样非标定制，小批量亦可接单。<br>
+          欢迎通过电话、微信或1688平台私信联系，免费为您报价。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ════════════════ -->
+<footer>
+  <div class="footer-logo">XIANBO · 显博电热</div>
+  <p>© 2007–2025 东莞市显博电热电器有限公司 · All Rights Reserved</p>
+  <p style="font-size:.72rem;">CQC · UL · CE · VDE · CUL · ISO 9001:2015</p>
+</footer>
+
+<script>
+  function toggleNav() {
+    var links = document.getElementById('navLinks');
+    var burger = document.getElementById('navBurger');
+    var isOpen = links.classList.toggle('open');
+    burger.classList.toggle('open', isOpen);
+    burger.setAttribute('aria-expanded', isOpen);
+  }
+  document.getElementById('navLinks').addEventListener('click', function(e) {
+    if (e.target.tagName === 'A') {
+      this.classList.remove('open');
+      document.getElementById('navBurger').classList.remove('open');
+      document.getElementById('navBurger').setAttribute('aria-expanded', 'false');
+    }
+  });
+</script>
+</body>
+</html>
